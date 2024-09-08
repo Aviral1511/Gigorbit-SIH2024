@@ -4,7 +4,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import MicrosoftIcon from '@mui/icons-material/Microsoft';
 import PopularServices from '../components/PopularServices';
-
+import { Link } from 'react-router-dom';
 const HomePage = () => {
   return (
     <div>
@@ -44,6 +44,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div className='w-[100vw]'>
+        <div className='text-[30px] bg-black text-white rounded-[20px] w-[300px] flex justify-center items-center '><Link to='/roomNavigator'>Room Navigator</Link></div>
+        </div>
       <div><PopularServices/></div>
     </div>
   )

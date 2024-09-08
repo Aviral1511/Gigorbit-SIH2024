@@ -4,7 +4,7 @@ import {Dialog,  DialogPanel,  Disclosure,  DisclosureButton,  DisclosurePanel, 
 import {  ArrowPathIcon,  Bars3Icon,  ChartPieIcon,  CursorArrowRaysIcon,  FingerPrintIcon,  SquaresPlusIcon,  XMarkIcon,} from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+// import { Link } from 'react-router-dom';
 const products = [
   { name: 'Hiring', description: 'My Team need vetted freelance talent and a premium bussiness solution', href: '#', icon: ArrowPathIcon },
   { name: 'Pro Services', description: 'I would like to work on bussiness project as a pro freelancer or agency', href: '#', icon: ArrowPathIcon },
@@ -33,6 +33,9 @@ export default function Navbar() {
             <span className="sr-only">GigOrbit</span>
             <div className='text-lg font-medium'>GigOrbit</div>
           </a>
+        </div>
+        <div>
+        {/* <Link to='/roomNavigator'>RoomNavigator</Link> */}
         </div>
         <div className="flex lg:hidden">
           <button
