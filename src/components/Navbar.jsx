@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">GigOrbit</span>
-            <div className='text-lg font-medium'>GigOrBit</div>
+            <div className='text-lg font-medium'>GigOrbit</div>
           </a>
         </div>
         <div className="flex lg:hidden">

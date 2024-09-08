@@ -4,6 +4,7 @@ import UserProfile from './pages/UserProfile';
 import ExploreProjects from './pages/ExploreProjects'
 import './App.css'
 import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/ExploreProjects" element={<ExploreProjects />} />
+        <Route path="/navbar" element={<Navbar/>}/>
       </Routes>
     </div>
   )
