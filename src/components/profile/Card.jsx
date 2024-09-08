@@ -1,32 +1,36 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React from "react";
+import Rating from "./Rating";
+import Avatar from "./Avatar";
 
-export default function MediaCard(props) {
+const Card = (props) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={props.url}
-        title={props.name}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div className="flex flex-col m-4 w-[30vw] min-h-[50vh] max-h-[content] rounded-lg border-[#a7a7a7] p-3 border-2 items-center">
+      <div className="flex flex-col items-center">
+      <div className="w-[30vw] rounded-lg h-[40vh] flex flex-col p-4 gap-4 items-center m-2">
+        <Avatar profileImage={props.profileImage}/>
+        <div className="flex w-[100%] items-center flex-col font-bold gap-1">
+          <div className="text-2xl">Name</div>
+          <div className="text-lg">userName</div>
+        </div>
+        <Rating value={props.value} />
+      </div>
+
+      <hr className="m-5 w-[90%] border-s-black" />
+      <div className="flex w-[25vw] flex-col">
+        <div>email</div>
+        <div>phoneNumber</div>
+      </div>
+      <hr className="m-5 w-[90%] border-s-black" />
+      <div className="flex w-[25vw] flex-col">
+        <p className="flex w-[25vw] h-max-[content] whitespace-wrap overflow-hidden text-wrap">
+          {/* {props.description} */}
+          descriptionkn
+          sdmakfnsjadknfsa,,,,,,,,,,,,,,,,,,,,,sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+        </p>
+      </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Card;
