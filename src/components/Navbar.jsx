@@ -1,9 +1,15 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import {Dialog,  DialogPanel,  Disclosure,  DisclosureButton,  DisclosurePanel,  Popover,  PopoverButton,  PopoverGroup,  PopoverPanel,} from '@headlessui/react'
 import {  ArrowPathIcon,  Bars3Icon,  ChartPieIcon,  CursorArrowRaysIcon,  FingerPrintIcon,  SquaresPlusIcon,  XMarkIcon,} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const products = [
+  { name: 'Hiring', description: 'My Team need vetted freelance talent and a premium bussiness solution', href: '#', icon: ArrowPathIcon },
+  { name: 'Pro Services', description: 'I would like to work on bussiness project as a pro freelancer or agency', href: '#', icon: ArrowPathIcon },
+]
+const products2 = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
   { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
   { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
@@ -16,10 +22,11 @@ const callsToAction = [
 ]
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <header className="bg-gray-100">
+    <header className="bg-gray-100 border-2 border-gray-300">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
@@ -38,7 +45,7 @@ export default function Navbar() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
+          <Popover className="relative z-20">
             <PopoverButton className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
               Premium
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
@@ -81,7 +88,7 @@ export default function Navbar() {
               </div>
             </PopoverPanel>
           </Popover>
-          <Popover className="relative">
+          <Popover className="relative z-20">
             <PopoverButton className="flex items-center gap-x-1 text-lg font-semibold leading-6 text-gray-900">
               Explore
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
@@ -92,7 +99,7 @@ export default function Navbar() {
               className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
               <div className="p-4">
-                {products.map((item) => (
+                {products2.map((item) => (
                   <div
                     key={item.name}
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -128,6 +135,9 @@ export default function Navbar() {
           <a href="#" className="text-lg font-semibold leading-6 text-gray-900">
             Become a seller
           </a>
+          <a href="/profile" className="scale-125">
+            <AccountCircleIcon />
+          </a>
         </PopoverGroup>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -135,12 +145,8 @@ export default function Navbar() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+                <span className="sr-only">GigOrbit</span>
+                <div className='text-lg font-medium'>GigOrBit</div>
             </a>
             <button
               type="button"
@@ -156,11 +162,29 @@ export default function Navbar() {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Product
+                    Premium
                     <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
                     {[...products, ...callsToAction].map((item) => (
+                      <DisclosureButton
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </DisclosureButton>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    Explore
+                    <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
+                  </DisclosureButton>
+                  <DisclosurePanel className="mt-2 space-y-2">
+                    {[...products2, ...callsToAction].map((item) => (
                       <DisclosureButton
                         key={item.name}
                         as="a"
@@ -177,6 +201,12 @@ export default function Navbar() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Become a seller
+                </a>
+                <a
+                  href="/profile"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  <AccountCircleIcon/> Profile
                 </a>
               </div>
             </div>
