@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PopularServices = () => {
   const services = [
@@ -12,21 +13,27 @@ const PopularServices = () => {
 
   return (
     <div className="py-12 px-6">
-      <h2 className="text-3xl font-bold mb-8">Popular services</h2>
-      <div className="flex space-x-8 overflow-x-auto scrollbar-hide">
-        {services.map((service, index) => (
+    <h2 className="text-3xl font-bold mb-8">Popular services</h2>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      {services.map((service, index) => (
+        <Link to="/ExploreProjects" key={index}>
           <div
-            key={index}
-            className={`${service.color} w-48 h-72 rounded-lg shadow-lg flex flex-col items-center justify-between p-4`}
+            className={`${service.color} w-full h-72 rounded-lg shadow-lg flex flex-col items-center justify-between p-4`}
           >
             <h3 className="text-white font-semibold text-lg text-center">
               {service.name}
             </h3>
-            <img src={service.image} alt={service.name} className="w-full h-40 object-cover rounded-lg" />
+            <img
+              src={service.image}
+              alt={service.name}
+              className="w-full h-40 object-cover rounded-lg"
+            />
           </div>
-        ))}
-      </div>
+        </Link>
+      ))}
     </div>
+  </div>
+  
   );
 };
 
