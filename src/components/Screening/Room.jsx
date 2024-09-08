@@ -21,10 +21,8 @@ const Room=()=> {
       const {roomId} =useParams();
       let myMeeting = async (element) => {
      // generate Kit Token
-     const hgsl52 = +process.env.REACT_APP_hgsl52;
-     const server_ghs30= process.env.REACT_APP_server_ghs30;
-     console.log(hgsl52)
-     console.log(server_ghs30);
+     const hgsl52 = +import.meta.env.VITE_hgsl52;
+     const server_ghs30= import.meta.env.VITE_server_ghs30;
 
       const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest( hgsl52 ,server_ghs30, roomId,  randomID(5),  randomID(5));
 
