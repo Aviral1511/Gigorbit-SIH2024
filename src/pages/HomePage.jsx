@@ -9,8 +9,7 @@ const HomePage = () => {
   return (
     <div>
       <div><Navbar/></div>
-      <div className="my-20 mx-auto bg-green-900 w-11/12 h-96 text-white py-16 px-6 lg:px-12 relative rounded-lg">
-
+      <div className="my-20 mx-auto bg-gray-900 w-11/12 h-96 text-white py-16 px-6 lg:px-12 relative rounded-lg">
         <div className="absolute inset-0 flex justify-between items-center pointer-events-none">
           <div className="flex flex-col items-center mx-4 hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://images.squarespace-cdn.com/content/v1/5ebd884a75210107f7810291/60077f00-bfa9-48da-ad43-f65d04583003/pexels-pixabay-220453-min.jpeg" alt="Jordan" className="w-32 h-44 rounded-xl object-cover shadow-lg" />

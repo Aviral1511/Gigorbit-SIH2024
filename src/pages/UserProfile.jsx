@@ -8,7 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { hideBadgeList } from "../redux/slices/badgeListSlice";
 import CommonCard from "../components/profile/CommonCard";
 import GaugeCard from "../components/profile/GaugeCard";
-import Gigbits from '../components/profile/Gigbits';
+import Gigbits from '../components/profile/GigBits';
 
 const UserProfile = () => {
   const { badgeList } = useSelector((state) => state.batchReducer);
